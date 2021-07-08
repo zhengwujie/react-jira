@@ -2,8 +2,9 @@ import React from 'react';
 import {SearchPanel} from "./search-panel";
 import {List} from "./list";
 import {useEffect, useState} from "react";
-import {cleanObj, useDebounce, useMount} from "../../utils";
+import {cleanObj, useDebounce, useMount} from "../../utils/index";
 import * as qs from "qs";
+
 
 const apiUrl = process.env.REACT_APP_API_URL
 export const ProjectListScreen = () => {
