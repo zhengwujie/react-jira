@@ -13,7 +13,7 @@ export const cleanObj = (object) => {
 export const useMount = (callback) => {
     useEffect(() => {
         callback()
-    }, [])
+    }, [callback])
 }
 
 
