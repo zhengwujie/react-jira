@@ -1,12 +1,19 @@
 import React from 'react';
 
+export interface User {
+    id: string,
+    name: string,
+    title: string,
+    organization: string
+}
+
 interface SearchPanelProps {
     users: User[],
     param: {
         name: string,
         personId: string
     },
-    setParam: (param:SearchPanelProps['param']) => void
+    setParam: (param: SearchPanelProps['param']) => void
 
 }
 
