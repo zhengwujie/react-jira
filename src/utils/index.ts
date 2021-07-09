@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-export const isFalsy = (value: any) => value === 0 ? false : !value
+export const isFalsy = (value: unknown): boolean => value === 0 ? false : !value
 // 清除控制
 export const cleanObj = (object: object) => {
     const result = {...object}
@@ -31,8 +31,8 @@ export const useMount = (callback: () => void) => {
 //     }
 // }
 
-
-export const useDebounce = (value: any, delay: number) => {
+// 后面用泛型来规范类型
+export const useDebounce = <v>(value: v, delay: number) => {
 
     const [debounceValue, setDebounceValue] = useState(value)
     useEffect(() => {
