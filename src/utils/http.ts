@@ -24,7 +24,7 @@ export const http = async (endpoint: string, {data, token, headers, ...customCon
         config.body = JSON.stringify(data || {})
     }
     // axios 和 fetch 区别 axios服务器异常的时候可以捕捉到异常，fetch是捕捉不到异常
-    window.fetch(`${apiUrl}/${endpoint}`, config)
+    return window.fetch(`${apiUrl}/${endpoint}`, config)
         .then(async response => {
             if (response.status === 401) {
                 await auth.logout()
