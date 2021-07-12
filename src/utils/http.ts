@@ -42,6 +42,23 @@ export const http = async (endpoint: string, {data, token, headers, ...customCon
 
 export const useHttp = () => {
     const {user} = useAuth()
-    // TODO 讲解TS 操作符
-    return (...[endpoint, config]: Parameters<typeof http>) => http(endpoint, {...config, token: user?.token})
+    // TODO 讲解TS
+    return (...[endpoint, config]: Parameters<typeof http>) =>
+        http(endpoint, {...config, token: user?.token})
 }
+
+/*
+interface 也没法实现Utility type
+type Person = {
+    name: string,
+    age: number
+}
+const xiaoming: Person = {name: '小明', age: 23}
+Partial容错
+const xiaoming1: Partial<Person> = {name: '小明'}
+Omit删除指向
+const shenmiren: Omit<Person, 'name'> = {age: 23}
+type PersonKeys = keyof Person
+type PersonOnlyName = Pick<Person, 'name' | 'age'>
+type Age = Exclude<PersonKeys, 'name'>
+*/
