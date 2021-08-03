@@ -20,7 +20,6 @@ export const login = (data: { username: string, password: string }) => {
         },
         body: JSON.stringify(data)
     }).then(async response => {
-        console.log('response',response)
         if (response.ok) {
             return handleUserResponse(await response.json())
         } else {
